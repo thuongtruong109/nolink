@@ -1,18 +1,16 @@
 package database
 
 import (
-	"context"
 	"os"
+
 	"github.com/go-redis/redis/v8"
+	"github.com/thuongtruong109/gouse/connection"
 )
 
-var Ctx = context.Background()
-
 func CreateClient(dbNo int) *redis.Client {
-	rdb := redis.NewClient(&redis.Options{
-		Addr: os.Getenv("DB_ADDR"),
-		Password : os.Getenv("DB_PASS"),
-		DB: dbNo,
-	})
+	addr := os.Getenv("DB_ADDR")
+	pass := os.Getenv("DB_PASS")
+	rdb := connection.Redis(addr, pass, dbNo)
+
 	return rdb
 }

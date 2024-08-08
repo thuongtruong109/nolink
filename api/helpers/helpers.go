@@ -6,8 +6,8 @@ import (
 )
 
 func EnforceHTTP(url string) string {
-	if url[:4] != "http" {
-		return "http://" + url
+	if url[:4] != HTTP_PREFIX {
+		return HTTP + url
 	}
 	return url
 }
@@ -17,15 +17,11 @@ func RemoveDomainError(url string) bool {
 		return false
 	}
 
-	newURL := strings.Replace(url, "http://", "", 1)
-	newURL = strings.Replace(newURL, "https://", "", 1)
-	newURL = strings.Replace(newURL, "www.", "", 1)
+	newURL := strings.Replace(url, HTTP, "", 1)
+	newURL = strings.Replace(newURL, HTTPS, "", 1)
+	newURL = strings.Replace(newURL, WWW, "", 1)
 
 	newURL = strings.Split(newURL, "/")[0]
 
-	if newURL == os.Getenv("DOMAIN"){
-		return false
-	}
-
-	return true
+	return newURL != os.Getenv("DOMAIN")
 }

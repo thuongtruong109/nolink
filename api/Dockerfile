@@ -19,8 +19,8 @@ LABEL "org.opencontainers.image.authors"="Tran Nguyen Thuong Truong <thuongtruon
 LABEL "org.opencontainers.image.version"="1.0"
 LABEL "org.opencontainers.image.description"="Official image of short1url api"
 LABEL "org.opencontainers.image.licenses"="MIT"
-LABEL "org.opencontainers.image.source"="https://github.com/thuongtruong1009/short1url/api"
-LABEL "org.opencontainers.image.documentation"="https://github.com/thuongtruong1009/short1url/blob/main/README.md"
+LABEL "org.opencontainers.image.source"="https://github.com/thuongtruong109/onelink/api"
+LABEL "org.opencontainers.image.documentation"="https://github.com/thuongtruong109/onelink/blob/main/README.md"
 
 RUN apk --no-cache add ca-certificates
 
