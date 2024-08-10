@@ -36,8 +36,13 @@ func ShortenURL(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": helpers.CANNOT_PARSE_ENV})
 	}
 
+	if body.IP == "" {
+		body.IP = c.IP()
+	}
+
 	r2 := database.CreateClient(1)
 	defer r2.Close()
+
 	val, err := r2.Get(helpers.Ctx, c.IP()).Result()
 	if err == redis.Nil {
 		_ = r2.Set(helpers.Ctx, c.IP(), os.Getenv("API_QUOTA"), 1*time.Second).Err()

@@ -1,3 +1,5 @@
 .env.example
+.env.dev
 fly.toml
 Dockerfile
+Dockerfile.dev

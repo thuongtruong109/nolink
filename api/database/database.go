@@ -4,13 +4,15 @@ import (
 	"os"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/thuongtruong109/gouse/connection"
 )
 
 func CreateClient(dbNo int) *redis.Client {
-	addr := os.Getenv("DB_ADDR")
-	pass := os.Getenv("DB_PASS")
-	rdb := connection.Redis(addr, pass, dbNo)
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     os.Getenv("DB_ADDR"),
+		Username: os.Getenv("DB_USER"),
+		Password: os.Getenv("DB_PASS"),
+		DB:       dbNo,
+	})
 
 	return rdb
 }

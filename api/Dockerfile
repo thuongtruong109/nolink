@@ -1,4 +1,4 @@
-FROM golang:1.20-alpine AS development
+FROM golang:1.22-alpine AS development
 
 RUN mkdir /app
 
@@ -6,7 +6,9 @@ ADD go.mod go.sum /app/
 
 WORKDIR /app
 
-RUN go mod tidy
+RUN go install golang.org/x/tools/gopls@latest
+
+RUN go mod download
 
 COPY . /app
 
@@ -14,10 +16,10 @@ RUN GOOS=linux go build -ldflags="-s -w" -o main main.go
 
 FROM alpine AS production
 
-LABEL "maintainer"="thuongtruong1009"
+LABEL "maintainer"="thuongtruong109"
 LABEL "org.opencontainers.image.authors"="Tran Nguyen Thuong Truong <thuongtruongofficial@gmail.com>"
 LABEL "org.opencontainers.image.version"="1.0"
-LABEL "org.opencontainers.image.description"="Official image of short1url api"
+LABEL "org.opencontainers.image.description"="Official image of onelink api"
 LABEL "org.opencontainers.image.licenses"="MIT"
 LABEL "org.opencontainers.image.source"="https://github.com/thuongtruong109/onelink/api"
 LABEL "org.opencontainers.image.documentation"="https://github.com/thuongtruong109/onelink/blob/main/README.md"

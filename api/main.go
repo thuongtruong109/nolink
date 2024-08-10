@@ -36,8 +36,8 @@ func main() {
 	}))
 
 	app.Use(cors.New(cors.Config{
-		// AllowOrigins: "*",
-		AllowOrigins: "http://localhost:3000, http://localhost:3001, https://onelink.vercel.app",
+		AllowOrigins: "*",
+		// AllowOrigins: "http://localhost:3000, http://localhost:3001, https://onelink.vercel.app",
 		AllowMethods: strings.Join([]string{
 			fiber.MethodGet,
 			fiber.MethodPost,
