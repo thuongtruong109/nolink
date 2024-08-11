@@ -39,7 +39,7 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/short1url-api
+            ${{ secrets.DOCKERHUB_USERNAME }}/onelink-api
             ghcr.io/${{ github.repository }}
 
       - name: Build and push api image
@@ -55,7 +55,7 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/short1url-client
+            ${{ secrets.DOCKERHUB_USERNAME }}/onelink-client
             ghcr.io/${{ github.repository }}
 
       - name: Build and push client image

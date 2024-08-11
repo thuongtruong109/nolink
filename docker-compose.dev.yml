@@ -13,7 +13,7 @@ services:
     restart: always
 
   client:
-    container_name: short1url-client
+    container_name: onelink-client
     build:
       context: ./client
       dockerfile: Dockerfile.dev
@@ -29,7 +29,7 @@ services:
     restart: always
 
   api:
-    container_name: short1url-api
+    container_name: onelink-api
     build:
       context: ./api
       dockerfile: Dockerfile.dev
