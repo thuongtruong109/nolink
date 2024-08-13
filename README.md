@@ -5,8 +5,8 @@
     <img alt="CircleCI status" src="https://circleci.com/gh/circleci/circleci-docs.svg?style=svg">
     <a href="https://github.com/thuongtruong109/onelink/pkgs/container/onelink-api"><img alt="Automated api build" src="https://img.shields.io/docker/automated/thuongtruong1009/onelink-api?logo=Docker&label=server"></a>
     <a href="https://github.com/thuongtruong109/onelink/pkgs/container/onelink-client"><img alt="Automated client build" src="https://img.shields.io/docker/automated/thuongtruong1009/onelink-client?logo=Docker&label=client"></a>
-    <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/thuongtruong1009/short1url">
-    <a href="https://github.com/thuongtruong109/onelink/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/thuongtruong1009/short1url"></a>
+    <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/thuongtruong109/onelink">
+    <a href="https://github.com/thuongtruong109/onelink/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/thuongtruong109/onelink"></a>
     <a href="https://paypal.me/thuongtruong1009" rel="nofollow"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" style="max-width: 100%;"></a>
      <!-- <img alt="api image size" src="https://img.shields.io/docker/image-size/thuongtruong1009/short1url-api/latest">
     <img alt="client image size" src="https://img.shields.io/docker/image-size/thuongtruong1009/short1url-client/latest"> -->
