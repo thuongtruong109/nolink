@@ -2,7 +2,7 @@
   <footer>
     <p>
       Copyright
-      <a href="https://github.com/thuongtruong1009">@thuongtruong1009</a>, 2023
+      <a href="https://github.com/thuongtruong1009">@thuongtruong</a>, 2023
     </p>
   </footer>
 </template>
@@ -11,7 +11,7 @@
 footer {
   position: absolute;
   bottom: 0;
-  color: white;
+  color: gray;
   text-align: center;
   padding: 1rem;
   font-size: 0.75rem;

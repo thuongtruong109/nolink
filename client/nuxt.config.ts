@@ -1,3 +1,4 @@
+import path from "path";
 import pkg from "./package.json";
 
 export default defineNuxtConfig({
@@ -36,16 +37,16 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: [
-    "@nuxtjs/robots",
-    [
-      "@nuxtjs/robots",
-      {
-        UserAgent: "*",
-        Disallow: "/",
-      },
-    ],
-  ],
+  // modules: [
+  //   "@nuxtjs/robots",
+  //   [
+  //     "@nuxtjs/robots",
+  //     {
+  //       UserAgent: "*",
+  //       Disallow: "/",
+  //     },
+  //   ],
+  // ],
 
   runtimeConfig: {
     public: {

@@ -24,27 +24,33 @@ const onClearInput = () => {
   toolOption.value = EBUTTON_OPTION.SHORTEN;
 };
 
-onMounted(() => {
-  getAllShorted();
-});
+// onMounted(() => {
+//   getAllShorted();
+// });
 
-const getAllShorted = async () => {
-  const ipData = await FetchMethod(config.public.ipSource);
-  const allData = await FetchMethod(
-    `${config.public.apiBase}/all?ip=${ipData?.ip}`,
-    {
-      method: "POST",
-    }
-  );
+// const getAllShorted = async () => {
+//   const ipData = await FetchMethod(config.public.ipSource, 
+//     {
+//       method: "GET",
+//       mode: 'no-cors',
+//     }
+//   );
+//   const allData = await FetchMethod(
+//     `${config.public.apiBase}/own?ip=${ipData?.ip}`,
+//     {
+//       method: "POST",
+//       mode: 'no-cors', 
+//     }
+//   );
 
-  shortedUrl.value = allData;
-};
+//   shortedUrl.value = allData;
+// };
 
 const onShorten = async () => {
   if (!url.value) return;
   toolOption.value = EBUTTON_OPTION.SHORTEN;
 
-  const shortenData = await FetchMethod(`${config.public.apiBase}`, {
+  const shortenData = await FetchMethod(`${config.public.apiBase}/`, {
     method: "POST",
     body: JSON.stringify({ url: url.value }),
   });
@@ -95,7 +101,7 @@ const onClickOptionBtn = (option: EBUTTON_OPTION) => {
               @click="onClickOptionBtn(EBUTTON_OPTION.QRCODE)"
             >
               <QR />
-              <span>QR Code</span>
+              <span>QR</span>
             </button>
           </li>
 
@@ -108,7 +114,7 @@ const onClickOptionBtn = (option: EBUTTON_OPTION) => {
               @click="onClickOptionBtn(EBUTTON_OPTION.BARCODE)"
             >
               <Bar />
-              <span>Bar Code</span>
+              <span>Bar</span>
             </button>
           </li>
         </ul>
@@ -136,10 +142,11 @@ main {
   align-items: center;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url("/landing.png");
+  background-image: url("/landing.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 100% 100%;
+  background-attachment: fixed;
 
   section {
     border-radius: 0.5rem;
@@ -148,12 +155,8 @@ main {
 
     .form {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      margin: 1rem;
-      padding: 2rem 1rem;
-      background: rgba(247, 247, 247, 0.3);
       border-radius: 0.5rem;
       width: 100%;
 
@@ -167,21 +170,23 @@ main {
 
       ul {
         @include flex-center;
-        width: 100%;
-        margin-top: 1rem;
+        width: fit-content;
         list-style: none;
 
         li {
           .bar_btn {
             @include button($blue);
+            padding: 1.1rem 0.8rem;
           }
 
           .qr_btn {
             @include button($purple);
+            padding: 1.1rem 0.8rem;
           }
 
           .short_btn {
             @include button($red);
+            padding: 1.1rem 0.8rem;
           }
         }
       }

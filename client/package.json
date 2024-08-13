@@ -1,8 +1,8 @@
 {
-  "name": "short1url",
+  "name": "onelink",
   "private": true,
   "version": "1.0",
-  "description": "Ship your link in an easier way",
+  "description": "Ship your link in an easiest way",
   "keywords": [
     "docker",
     "nginx",
@@ -15,13 +15,13 @@
     "scss",
     "typescript"
   ],
-  "homepage": "https://github.com/thuongtruong1009/short1url#readme",
+  "homepage": "https://github.com/thuongtruong1009/onelink#readme",
   "bugs": {
-    "url": "https://github.com/thuongtruong1009/short1url/issues"
+    "url": "https://github.com/thuongtruong1009/onelink/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thuongtruong1009/short1url"
+    "url": "git+https://github.com/thuongtruong1009/onelink"
   },
   "funding": "https://paypal.me/thuongtruong1009",
   "license": "MIT",

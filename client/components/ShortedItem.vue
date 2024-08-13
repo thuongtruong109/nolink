@@ -26,7 +26,7 @@ const onCopy = (text: string) => {
 
 <template>
   <li>
-    <h4>Your shorted URL:</h4>
+    <h4>Shorted URL:</h4>
     <a :href="props.url" target="_blank">{{ props.url }}</a>
     <button @click="onCopy(props.url)">
       <Copy v-if="!isCopied" />
@@ -41,7 +41,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   background: $light-blue;
   padding: 0.5rem;
   border-radius: 0.5rem;

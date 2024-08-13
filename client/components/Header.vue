@@ -2,7 +2,7 @@
   <header>
     <div>
       <img src="/favicon.svg" alt="logo" />
-      <h1>Short1url</h1>
+      <h1>Onelink</h1>
     </div>
     <blockquote>Ship your link in an easier way</blockquote>
   </header>
@@ -10,19 +10,20 @@
 
 <style lang="scss" scoped>
 header {
+  padding: 1rem 0 2rem;
+  
   div {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: 1.7rem;
-    margin-top: 3rem;
+    font-size: 1.5rem;
     letter-spacing: 0.25rem;
     font-family: "Lobster Two", cursive;
 
     img {
-      width: 3.2rem;
-      height: 3.2rem;
+      width: 2.5rem;
+      height: 2.5rem;
       object-fit: cover;
       object-position: center;
       margin-right: 0.5rem;
@@ -35,7 +36,7 @@ header {
   }
 
   blockquote {
-    color: white;
+    color: gray;
     margin: 1rem 0 2rem;
     font-size: 1.2rem;
     text-align: center;
