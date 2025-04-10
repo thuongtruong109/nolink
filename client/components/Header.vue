@@ -2,7 +2,7 @@
   <header>
     <div>
       <img src="/favicon.svg" alt="logo" />
-      <h1>Onelink</h1>
+      <h1>nolink</h1>
     </div>
     <blockquote>Ship your link in an easier way</blockquote>
   </header>
@@ -11,7 +11,7 @@
 <style lang="scss" scoped>
 header {
   padding: 1rem 0 2rem;
-  
+
   div {
     display: flex;
     flex-direction: row;

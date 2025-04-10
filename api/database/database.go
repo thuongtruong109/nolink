@@ -1,16 +1,15 @@
 package database
 
 import (
-	"os"
-
 	"github.com/go-redis/redis/v8"
+	"github.com/thuongtruong109/nolink/helpers"
 )
 
 func CreateClient(dbNo int) *redis.Client {
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     os.Getenv("DB_ADDR"),
-		Username: os.Getenv("DB_USER"),
-		Password: os.Getenv("DB_PASS"),
+		Addr:     helpers.DB_ADDR,
+		Username: helpers.DB_USER,
+		Password: helpers.DB_PASS,
 		DB:       dbNo,
 	})
 

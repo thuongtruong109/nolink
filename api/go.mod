@@ -1,4 +1,4 @@
-module github.com/thuongtruong109/onelink
+module github.com/thuongtruong109/nolink
 
 go 1.22
 

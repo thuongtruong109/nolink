@@ -14,7 +14,7 @@ services:
     restart: always
 
   client:
-    image: thuongtruong1009/onelink-client
+    image: thuongtruong1009/nolink-client
     container_name: client
     build:
       context: ./client
@@ -32,13 +32,13 @@ services:
     restart: always
 
   api:
-    image: thuongtruong1009/onelink-api
+    image: thuongtruong1009/nolink-api
     container_name: api
     build:
       context: ./api
       dockerfile: Dockerfile
     env_file:
-      - ./api/.env.dev
+      - ./api/.env
     ports:
       - "8080:8080"
     environment:

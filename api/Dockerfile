@@ -6,8 +6,6 @@ ADD go.mod go.sum /app/
 
 WORKDIR /app
 
-RUN go install golang.org/x/tools/gopls@latest
-
 RUN go mod download
 
 COPY . /app
@@ -19,10 +17,10 @@ FROM alpine AS production
 LABEL "maintainer"="thuongtruong109"
 LABEL "org.opencontainers.image.authors"="Tran Nguyen Thuong Truong <thuongtruongofficial@gmail.com>"
 LABEL "org.opencontainers.image.version"="1.0"
-LABEL "org.opencontainers.image.description"="Official image of onelink api"
+LABEL "org.opencontainers.image.description"="Official image of nolink api"
 LABEL "org.opencontainers.image.licenses"="MIT"
-LABEL "org.opencontainers.image.source"="https://github.com/thuongtruong109/onelink/api"
-LABEL "org.opencontainers.image.documentation"="https://github.com/thuongtruong109/onelink/blob/main/README.md"
+LABEL "org.opencontainers.image.source"="https://github.com/thuongtruong109/nolink/api"
+LABEL "org.opencontainers.image.documentation"="https://github.com/thuongtruong109/nolink/blob/main/README.md"
 
 RUN apk --no-cache add ca-certificates
 

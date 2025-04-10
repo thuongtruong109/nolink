@@ -7,7 +7,7 @@
         <mxCell id="9hjlnC2cQS0SMQREBwqv-1" value="" style="swimlane;startSize=0;rounded=0;dashed=1;swimlaneLine=1;gradientColor=none;strokeColor=none;fillColor=none;shadow=1;" parent="1" vertex="1">
           <mxGeometry x="60" y="140" width="240" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="B3qt_1SEBNGEb0ojF064-14" value="Onelink" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://static-00.iconduck.com/assets.00/nuxtjs-icon-512x343-16hzp9e7.png;fontStyle=1;shadow=1;" parent="9hjlnC2cQS0SMQREBwqv-1" vertex="1">
+        <mxCell id="B3qt_1SEBNGEb0ojF064-14" value="nolink" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://static-00.iconduck.com/assets.00/nuxtjs-icon-512x343-16hzp9e7.png;fontStyle=1;shadow=1;" parent="9hjlnC2cQS0SMQREBwqv-1" vertex="1">
           <mxGeometry x="150" width="55.01" height="36.84" as="geometry" />
         </mxCell>
         <mxCell id="9hjlnC2cQS0SMQREBwqv-31" value="" style="endArrow=classic;html=1;jumpStyle=arc;curved=1;shadow=1;startArrow=none;startFill=0;endFill=1;" parent="9hjlnC2cQS0SMQREBwqv-1" edge="1">
@@ -88,7 +88,7 @@
         <mxCell id="9hjlnC2cQS0SMQREBwqv-27" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;(4) Query command&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;shadow=1;" parent="1" vertex="1">
           <mxGeometry x="510" y="130.00000000000006" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="9hjlnC2cQS0SMQREBwqv-39" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Onelink infrastructure architecture&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=1;" parent="1" vertex="1">
+        <mxCell id="9hjlnC2cQS0SMQREBwqv-39" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;nolink infrastructure architecture&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=1;" parent="1" vertex="1">
           <mxGeometry x="270" y="300" width="196.25" height="20" as="geometry" />
         </mxCell>
         <mxCell id="9hjlnC2cQS0SMQREBwqv-26" value="" style="endArrow=classic;html=1;shadow=1;entryX=0.053;entryY=-0.35;entryDx=0;entryDy=0;curved=1;entryPerimeter=0;" parent="1" target="9hjlnC2cQS0SMQREBwqv-8" edge="1">

@@ -13,7 +13,7 @@ services:
     restart: always
 
   client:
-    container_name: onelink-client
+    container_name: nolink-client
     build:
       context: ./client
       dockerfile: Dockerfile.dev
@@ -29,12 +29,10 @@ services:
     restart: always
 
   api:
-    container_name: onelink-api
+    container_name: nolink-api
     build:
       context: ./api
       dockerfile: Dockerfile.dev
-    env_file:
-      - ./api/.env.dev
     ports:
       - "8081:8081"
     environment:

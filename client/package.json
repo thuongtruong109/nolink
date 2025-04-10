@@ -1,5 +1,5 @@
 {
-  "name": "onelink",
+  "name": "nolink",
   "private": true,
   "version": "1.0",
   "description": "Ship your link in an easiest way",
@@ -15,13 +15,13 @@
     "scss",
     "typescript"
   ],
-  "homepage": "https://github.com/thuongtruong1009/onelink#readme",
+  "homepage": "https://github.com/thuongtruong1009/nolink#readme",
   "bugs": {
-    "url": "https://github.com/thuongtruong1009/onelink/issues"
+    "url": "https://github.com/thuongtruong1009/nolink/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thuongtruong1009/onelink"
+    "url": "git+https://github.com/thuongtruong1009/nolink"
   },
   "funding": "https://paypal.me/thuongtruong1009",
   "license": "MIT",
