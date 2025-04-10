@@ -3,14 +3,13 @@ package routes
 import (
 	"github.com/go-redis/redis/v8"
 	"github.com/gofiber/fiber/v2"
-	"github.com/thuongtruong109/nolink/database"
 	"github.com/thuongtruong109/nolink/helpers"
 )
 
 func ResolveURL(c *fiber.Ctx) error {
 	url := c.Params("url")
 
-	r := database.CreateClient(0)
+	r := helpers.CreateClient(0)
 	defer r.Close()
 
 	value, err := r.Get(helpers.Ctx, url).Result()
@@ -20,7 +19,7 @@ func ResolveURL(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": helpers.CANNOT_RETRIEVE_TO_DB})
 	}
 
-	rInr := database.CreateClient(1)
+	rInr := helpers.CreateClient(1)
 	defer rInr.Close()
 
 	_ = rInr.Incr(helpers.Ctx, helpers.COUNTER)

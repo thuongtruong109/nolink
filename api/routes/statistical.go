@@ -4,14 +4,13 @@ import (
 	"fmt"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/thuongtruong109/nolink/database"
 	"github.com/thuongtruong109/nolink/helpers"
 )
 
 func AllShortedURLsOfUser(c *fiber.Ctx) error {
 	ip := c.Query("ip")
 
-	r := database.CreateClient(0)
+	r := helpers.CreateClient(0)
 	defer r.Close()
 
 	result, err := r.SMembers(helpers.Ctx, helpers.INDEX+ip).Result()
@@ -36,7 +35,7 @@ func AllShortedURLsOfUser(c *fiber.Ctx) error {
 }
 
 func AllShortedURLs(c *fiber.Ctx) error {
-	r := database.CreateClient(0)
+	r := helpers.CreateClient(0)
 	defer r.Close()
 
 	result, err := r.Keys(helpers.Ctx, "*").Result()

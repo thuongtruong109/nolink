@@ -5,22 +5,19 @@
     <img alt="CircleCI status" src="https://circleci.com/gh/circleci/circleci-docs.svg?style=svg">
     <a href="https://github.com/thuongtruong109/nolink/pkgs/container/nolink-api"><img alt="Automated api build" src="https://img.shields.io/docker/automated/thuongtruong1009/nolink-api?logo=Docker&label=server"></a>
     <a href="https://github.com/thuongtruong109/nolink/pkgs/container/nolink-client"><img alt="Automated client build" src="https://img.shields.io/docker/automated/thuongtruong1009/nolink-client?logo=Docker&label=client"></a>
-    <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/thuongtruong109/nolink">
     <a href="https://github.com/thuongtruong109/nolink/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/thuongtruong109/nolink"></a>
     <a href="https://paypal.me/thuongtruong1009" rel="nofollow"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" style="max-width: 100%;"></a>
-     <!-- <img alt="api image size" src="https://img.shields.io/docker/image-size/thuongtruong1009/short1url-api/latest">
-    <img alt="client image size" src="https://img.shields.io/docker/image-size/thuongtruong1009/short1url-client/latest"> -->
 </div>
 
-## Description
+## 🌳 Description
 
 This is a simple URL shortener service, which helps you shorten your long URL to share repidly to external. It is written in Golang and uses Redis as database. Other hand, it also provides some services such as QR code generator, barcode generator, etc.
 
-## Preview
+## 💫 Preview
 
 ![Preview image](public/preview.png)
 
-## What's new
+## 💥 What's new
 
 - [x] Shorten URL
 - [x] Redirect to original URL
@@ -36,19 +33,19 @@ This is a simple URL shortener service, which helps you shorten your long URL to
 - [ ] Unit test
 - [ ] Caching
 
-## Architecture
+## 🏗️ Architecture
 
 ![Image](public/architecture.png)
 
-## Contributing
+## 🤝 Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. If you like my work, please star 🌟 this repository.
 
-## License
+## 🪪 License
 
 **Short1url** is an [MIT-licensed](LICENSE) open source project.
 
-Copyright of <a href="https://github.com/thuongtruong1009">thuongtruong1009</a>
+Copyright of <a href="https://github.com/thuongtruong109">thuongtruong1009</a>
 
 <!-- ## References
 

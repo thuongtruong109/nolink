@@ -9,7 +9,6 @@ import (
 	"github.com/go-redis/redis/v8"
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
-	"github.com/thuongtruong109/nolink/database"
 	"github.com/thuongtruong109/nolink/helpers"
 )
 
@@ -39,7 +38,7 @@ func ShortenURL(c *fiber.Ctx) error {
 		body.IP = c.IP()
 	}
 
-	r2 := database.CreateClient(1)
+	r2 := helpers.CreateClient(1)
 	defer r2.Close()
 
 	val, err := r2.Get(helpers.Ctx, c.IP()).Result()
@@ -72,7 +71,7 @@ func ShortenURL(c *fiber.Ctx) error {
 		id = body.Short
 	}
 
-	r := database.CreateClient(0)
+	r := helpers.CreateClient(0)
 	defer r.Close()
 
 	val, _ = r.Get(helpers.Ctx, id).Result()

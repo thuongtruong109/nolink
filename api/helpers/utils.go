@@ -4,6 +4,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/go-redis/redis/v8"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -25,6 +26,18 @@ func Env(key, defaultValue string) string {
 
 	return defaultValue
 }
+
+func CreateClient(dbNo int) *redis.Client {
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     DB_ADDR,
+		Username: DB_USER,
+		Password: DB_PASS,
+		DB:       dbNo,
+	})
+
+	return rdb
+}
+
 
 func EnforceHTTP(url string) string {
 	if url[:4] != HTTP_PREFIX {

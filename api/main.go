@@ -13,14 +13,6 @@ import (
 	"github.com/thuongtruong109/nolink/routes"
 )
 
-func setupRoutes(app *fiber.App) {
-	app.Post("/", routes.ShortenURL)
-	app.Post("", routes.ShortenURL)
-	app.Get("/:url", routes.ResolveURL)
-	app.Post("/own", routes.AllShortedURLsOfUser)
-	app.Post("/all", routes.AllShortedURLs)
-}
-
 func main() {
 	err := godotenv.Load()
 	if err != nil {
@@ -48,7 +40,7 @@ func main() {
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
-	setupRoutes(app)
+	routes.Combine(app)
 
 	log.Fatal(app.Listen(helpers.APP_PORT))
 }
