@@ -17,7 +17,7 @@ const url = ref<string>("");
 
 const toolOption = ref<string>(EBUTTON_OPTION.SHORTEN);
 
-const shortedUrl = ref<string[]>([]);
+const shortedUrl = ref<string[]>(["https://www.google.com"]);
 
 const onClearInput = () => {
   url.value = "";
@@ -29,7 +29,7 @@ const onClearInput = () => {
 // });
 
 // const getAllShorted = async () => {
-//   const ipData = await FetchMethod(config.public.ipSource, 
+//   const ipData = await FetchMethod(config.public.ipSource,
 //     {
 //       method: "GET",
 //       mode: 'no-cors',
@@ -39,7 +39,7 @@ const onClearInput = () => {
 //     `${config.public.apiBase}/own?ip=${ipData?.ip}`,
 //     {
 //       method: "POST",
-//       mode: 'no-cors', 
+//       mode: 'no-cors',
 //     }
 //   );
 
@@ -55,7 +55,7 @@ const onShorten = async () => {
     body: JSON.stringify({ url: url.value }),
   });
 
-  shortedUrl.value.push(shortenData.short);
+  shortedUrl.value.unshift(shortenData.short);
   onClearInput();
 };
 
@@ -92,7 +92,7 @@ const onClickOptionBtn = (option: EBUTTON_OPTION) => {
             </button>
           </li>
 
-          <li>
+          <!-- <li>
             <button
               :disabled="!url"
               alt="QR Code"
@@ -103,9 +103,9 @@ const onClickOptionBtn = (option: EBUTTON_OPTION) => {
               <QR />
               <span>QR</span>
             </button>
-          </li>
+          </li> -->
 
-          <li>
+          <!-- <li>
             <button
               :disabled="!url"
               alt="Bar Code"
@@ -116,15 +116,11 @@ const onClickOptionBtn = (option: EBUTTON_OPTION) => {
               <Bar />
               <span>Bar</span>
             </button>
-          </li>
+          </li> -->
         </ul>
       </div>
 
       <ShortedList :shortedUrl="shortedUrl" />
-
-      <QRCode :text="url" v-if="toolOption === EBUTTON_OPTION.QRCODE" />
-
-      <BarCode :text="url" v-if="toolOption === EBUTTON_OPTION.BARCODE" />
     </section>
 
     <Footer />
@@ -175,7 +171,7 @@ main {
 
         li {
           .bar_btn {
-            @include button($blue);
+            @include button($green);
             padding: 1.1rem 0.8rem;
           }
 

@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: "en", dir: "ltr" },
-      title: pkg.name,
+      title: pkg.name.toUpperCase(),
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -36,17 +36,6 @@ export default defineNuxtConfig({
       },
     },
   },
-
-  // modules: [
-  //   "@nuxtjs/robots",
-  //   [
-  //     "@nuxtjs/robots",
-  //     {
-  //       UserAgent: "*",
-  //       Disallow: "/",
-  //     },
-  //   ],
-  // ],
 
   runtimeConfig: {
     public: {

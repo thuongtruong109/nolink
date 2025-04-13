@@ -35,7 +35,6 @@ func main() {
 			fiber.MethodPost,
 			fiber.MethodPut,
 			fiber.MethodDelete,
-
 		}, ","),
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))

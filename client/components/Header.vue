@@ -1,8 +1,9 @@
 <template>
   <header>
     <div>
-      <img src="/favicon.svg" alt="logo" />
-      <h1>nolink</h1>
+      <!-- https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/external-link-social-media-vitaliy-gorbachev-flat-vitaly-gorbachev.png -->
+      <img src="/favicon.svg" alt="logo" width="40" height="40" />
+      <h1>Nolink</h1>
     </div>
     <blockquote>Ship your link in an easier way</blockquote>
   </header>
@@ -20,18 +21,16 @@ header {
     font-size: 1.5rem;
     letter-spacing: 0.25rem;
     font-family: "Lobster Two", cursive;
+    font-weight: 600;
 
     img {
-      width: 2.5rem;
-      height: 2.5rem;
-      object-fit: cover;
-      object-position: center;
-      margin-right: 0.5rem;
+      margin-right: 1rem;
+      filter: drop-shadow(1px 1px 4px #9cbcff);
     }
 
     h1 {
-      color: $yellow;
-      text-shadow: 1px 1px 8px rgba(255, 205, 2, 0.4);
+      color: #80aaff;
+      text-shadow: 1px 1px 4px #9cbcff;
     }
   }
 

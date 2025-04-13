@@ -2,7 +2,7 @@
   <footer>
     <p>
       Copyright
-      <a href="https://github.com/thuongtruong1009">@thuongtruong</a>, 2023
+      <a href="https://github.com/thuongtruong109">@thuongtruong</a>, 2023
     </p>
   </footer>
 </template>

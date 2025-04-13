@@ -43,9 +43,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## 🪪 License
 
-**Short1url** is an [MIT-licensed](LICENSE) open source project.
-
-Copyright of <a href="https://github.com/thuongtruong109">thuongtruong1009</a>
+**Nolink** is an [MIT-licensed](LICENSE) by <a href="https://github.com/thuongtruong109">thuongtruong109</a>
 
 <!-- ## References
 

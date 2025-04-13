@@ -17,16 +17,13 @@ onMounted(() => {
 
 <template>
   <div>
-    <!-- <svg id="barcode"></svg> -->
     <img id="barcode" />
   </div>
 </template>
 
 <style scoped>
-svg,
 img {
   border-radius: 0.5rem;
-  width: 22rem;
-  height: 8rem;
+  width: 10rem;
 }
 </style>
