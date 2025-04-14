@@ -2,6 +2,7 @@ package routes
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 	"time"
 
@@ -43,7 +44,7 @@ func ShortenURL(c *fiber.Ctx) error {
 
 	val, err := r2.Get(helpers.Ctx, c.IP()).Result()
 	if err == redis.Nil {
-		_ = r2.Set(helpers.Ctx, c.IP(), helpers.API_QUOTA, 1*time.Second).Err()
+		_ = r2.Set(helpers.Ctx, c.IP(), os.Getenv("API_QUOTA"), 1*time.Second).Err()
 	} else {
 		val, _ = r2.Get(helpers.Ctx, c.IP()).Result()
 		valInt, _ := strconv.Atoi(val)
@@ -110,7 +111,7 @@ func ShortenURL(c *fiber.Ctx) error {
 	ttl, _ := r2.TTL(helpers.Ctx, c.IP()).Result()
 	resp.XRateLimitReset = ttl / time.Nanosecond / time.Minute
 
-	resp.Short = helpers.DOMAIN_RETURN + "/" + id
+	resp.Short = os.Getenv("DOMAIN_RETURN") + "/" + id
 
 	return c.Status(fiber.StatusCreated).JSON(resp)
 }

@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import BarCode from "./components/BarCode.vue";
+import { ref } from "vue";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
-import QRCode from "./components/QRCode.vue";
 import ShortedList from "./components/ShortedList.vue";
-import Bar from "./components/icons/Bar.vue";
-import Link from "./components/icons/Link.vue";
-import QR from "./components/icons/QR.vue";
+import Cut from "./components/icons/Cut.vue";
 import { EBUTTON_OPTION } from "./enums/option";
 import { FetchMethod } from "./services";
 
@@ -17,7 +13,7 @@ const url = ref<string>("");
 
 const toolOption = ref<string>(EBUTTON_OPTION.SHORTEN);
 
-const shortedUrl = ref<string[]>(["https://www.google.com"]);
+const shortedUrl = ref<string[]>([]);
 
 const onClearInput = () => {
   url.value = "";
@@ -58,10 +54,6 @@ const onShorten = async () => {
   shortedUrl.value.unshift(shortenData.short);
   onClearInput();
 };
-
-const onClickOptionBtn = (option: EBUTTON_OPTION) => {
-  toolOption.value = option;
-};
 </script>
 
 <template>
@@ -78,46 +70,17 @@ const onClickOptionBtn = (option: EBUTTON_OPTION) => {
           v-model="url"
           required
         />
-        <ul>
-          <li>
-            <button
-              :disabled="!url"
-              alt="Shorten"
-              title="shorten_btn"
-              class="short_btn"
-              @click="onShorten"
-            >
-              <Link />
-              <span>Shorten</span>
-            </button>
-          </li>
 
-          <!-- <li>
-            <button
-              :disabled="!url"
-              alt="QR Code"
-              title="QR Code"
-              class="qr_btn"
-              @click="onClickOptionBtn(EBUTTON_OPTION.QRCODE)"
-            >
-              <QR />
-              <span>QR</span>
-            </button>
-          </li> -->
-
-          <!-- <li>
-            <button
-              :disabled="!url"
-              alt="Bar Code"
-              title="Bar Code"
-              class="bar_btn"
-              @click="onClickOptionBtn(EBUTTON_OPTION.BARCODE)"
-            >
-              <Bar />
-              <span>Bar</span>
-            </button>
-          </li> -->
-        </ul>
+        <button
+          :disabled="!url"
+          alt="Shorten"
+          title="shorten_btn"
+          class="short_btn"
+          @click="onShorten"
+        >
+          <Cut />
+          <span>Shorten</span>
+        </button>
       </div>
 
       <ShortedList :shortedUrl="shortedUrl" />
@@ -164,27 +127,9 @@ main {
         width: 100%;
       }
 
-      ul {
-        @include flex-center;
-        width: fit-content;
-        list-style: none;
-
-        li {
-          .bar_btn {
-            @include button($green);
-            padding: 1.1rem 0.8rem;
-          }
-
-          .qr_btn {
-            @include button($purple);
-            padding: 1.1rem 0.8rem;
-          }
-
-          .short_btn {
-            @include button($red);
-            padding: 1.1rem 0.8rem;
-          }
-        }
+      .short_btn {
+        @include button($red);
+        padding: 1.1rem 0.8rem;
       }
     }
   }

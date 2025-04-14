@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for nolink on 2024-08-10T20:06:17+07:00
+# fly.toml app configuration file generated for nolink on 2025-04-14T23:00:26+07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = 'nolink'
-primary_region = 'sin'
+primary_region = 'syd'
 
 [build]
 
@@ -17,4 +17,6 @@ primary_region = 'sin'
   processes = ['app']
 
 [[vm]]
-  size = 'shared-cpu-1x'
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1

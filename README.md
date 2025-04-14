@@ -20,7 +20,7 @@ This is a simple URL shortener service, which helps you shorten your long URL to
 ## 💥 What's new
 
 - [x] Shorten URL
-- [x] Redirect to original URL
+- [x] Redirect to os.Getenv("ORIGIN")al URL
 - [x] Expiration time (default 1 day)
 - [x] QR code generator (custom color, download image, copy to clipboard)
 - [x] Barcode generator

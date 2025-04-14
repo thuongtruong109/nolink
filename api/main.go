@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
-	"github.com/thuongtruong109/nolink/helpers"
 	"github.com/thuongtruong109/nolink/routes"
 )
 
@@ -28,8 +28,7 @@ func main() {
 	}))
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "*",
-		// AllowOrigins: "http://localhost:3000, http://localhost:3001, https://nolink.vercel.app",
+		AllowOrigins: os.Getenv("ORIGIN"), // *
 		AllowMethods: strings.Join([]string{
 			fiber.MethodGet,
 			fiber.MethodPost,
@@ -41,5 +40,5 @@ func main() {
 
 	routes.Combine(app)
 
-	log.Fatal(app.Listen(helpers.APP_PORT))
+	log.Fatal(app.Listen(os.Getenv("APP_PORT")))
 }

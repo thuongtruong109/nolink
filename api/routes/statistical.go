@@ -2,6 +2,7 @@ package routes
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/thuongtruong109/nolink/helpers"
@@ -26,7 +27,7 @@ func AllShortedURLsOfUser(c *fiber.Ctx) error {
 			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": helpers.CANNOT_RETRIEVE_URLS_OF_CLIENT})
 		}
 
-		updatedResult = append(updatedResult, helpers.DOMAIN+"/"+member)
+		updatedResult = append(updatedResult, os.Getenv("DOMAIN")+"/"+member)
 
 		fmt.Printf("Key: %s, Value: %s\n", member, value)
 	}

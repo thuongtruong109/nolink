@@ -8,7 +8,12 @@ defineProps<{
 
 <template>
   <ul>
-    <ShortedItem :url="url" v-for="(url, i) in shortedUrl" :key="i" />
+    <ShortedItem
+      :url="url"
+      v-for="(url, i) in shortedUrl"
+      :key="i"
+      :isActive="i === 0"
+    />
   </ul>
 </template>
 
@@ -16,10 +21,5 @@ defineProps<{
 ul {
   width: 100%;
   margin: 2rem 0;
-
-  li {
-    display: flex;
-    width: 100%;
-  }
 }
 </style>

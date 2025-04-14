@@ -8,30 +8,11 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-var (
-	APP_PORT = Env("APP_PORT", ":8080")
-	DOMAIN = Env("DOMAIN", "localhost:8080")
-	DOMAIN_RETURN = Env("DOMAIN_RETURN", "http://localhost:8080")
-	API_QUOTA = Env("API_QUOTA", "100")
-	DB_ADDR = Env("DB_ADDR", "localhost:6379")
-
-	DB_USER = Env("DB_USER", "root")
-	DB_PASS = Env("DB_PASS", "")
-)
-
-func Env(key, defaultValue string) string {
-	if value := os.Getenv(key); value != "" {
-		return value
-	}
-
-	return defaultValue
-}
-
 func CreateClient(dbNo int) *redis.Client {
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     DB_ADDR,
-		Username: DB_USER,
-		Password: DB_PASS,
+		Addr:     os.Getenv("DB_ADDR"),
+		Username: os.Getenv("DB_USER"),
+		Password: os.Getenv("DB_PASS"),
 		DB:       dbNo,
 	})
 
@@ -47,7 +28,7 @@ func EnforceHTTP(url string) string {
 }
 
 func RemoveDomainError(url string) bool {
-	if url == DOMAIN {
+	if url == os.Getenv("DOMAIN") {
 		return false
 	}
 
@@ -57,7 +38,7 @@ func RemoveDomainError(url string) bool {
 
 	newURL = strings.Split(newURL, "/")[0]
 
-	return newURL != DOMAIN
+	return newURL != os.Getenv("DOMAIN")
 }
 
 func ResponseErr(c *fiber.Ctx, status int, err string) error {

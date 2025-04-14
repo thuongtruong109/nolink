@@ -3,9 +3,11 @@ import { computed, ref } from "vue";
 import Check from "./icons/Check.vue";
 import Copy from "./icons/Copy.vue";
 import Arrow from "./icons/Arrow.vue";
+import QRCode from "./QRCode.vue";
 
 const props = defineProps<{
   url: string;
+  isActive: boolean;
 }>();
 
 // const config = useRuntimeConfig();
@@ -24,15 +26,15 @@ const onCopy = (text: string) => {
   }, 1000);
 };
 
-const isToggleMore = ref<boolean>(false);
+const isToggleMore = ref<boolean>(props.isActive);
 </script>
 
 <template>
-  <li>
-    <div>
-      <h4>Shorted:</h4>
-      <h4 v-if="isToggleMore">Origin:</h4>
-    </div>
+  <li :class="{ active: isToggleMore }">
+    <h4>
+      <span>Shorted: {{ props.isActive }}</span>
+      <span v-if="isToggleMore">Origin:</span>
+    </h4>
     <div class="item-content">
       <div class="link">
         <a :href="props.url" target="_blank">{{ props.url }}</a>
@@ -40,20 +42,23 @@ const isToggleMore = ref<boolean>(false);
           currentUrl
         }}</a>
       </div>
-      <div v-if="isToggleMore" class="code">
-        <QRCode :text="url" />
-        <BarCode :text="url" />
-      </div>
+      <div v-if="isToggleMore"><QRCode :text="url" /></div>
     </div>
     <div class="item-btn">
       <button
         class="more-btn"
         :class="{ active: isToggleMore }"
         @click="isToggleMore = !isToggleMore"
+        type="button"
       >
         <Arrow />
       </button>
-      <button @click="onCopy(props.url)" class="copy-btn">
+      <button
+        @click="onCopy(props.url)"
+        class="copy-btn"
+        :disabled="isCopied"
+        type="button"
+      >
         <Copy v-if="!isCopied" />
         <span v-if="!isCopied">Copy</span>
         <Check v-else />
@@ -75,8 +80,15 @@ li {
   width: 100%;
   font-weight: bold;
 
+  &.active {
+    border: 1px solid $blue;
+  }
+
   h4 {
-    padding: 0.5rem 0;
+    span {
+      padding: 0.5rem 0;
+      display: block;
+    }
   }
 
   .item-btn {
@@ -131,12 +143,6 @@ li {
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-    }
-
-    .code {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 1rem;
     }
   }
 }

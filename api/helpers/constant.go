@@ -5,9 +5,9 @@ import "context"
 var Ctx = context.Background()
 
 const (
-	// API_QUOTA string = "API_QUOTA"
-	// DOMAIN           string = "DOMAIN"
-	// DOMAIN_RETURN    string = "DOMAIN_RETURN"
+	// os.Getenv("API_QUOTA") string = "os.Getenv("API_QUOTA")"
+	// os.Getenv("DOMAIN")           string = "os.Getenv("DOMAIN")"
+	// os.Getenv("DOMAIN")_RETURN    string = "os.Getenv("DOMAIN")_RETURN"
 	CANNOT_PARSE_ENV string = "cannot parse ENV keys"
 )
 

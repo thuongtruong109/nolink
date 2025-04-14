@@ -3,6 +3,7 @@ import { ref, reactive, watch, onMounted } from "vue";
 import { saveAs } from "file-saver";
 import { toString } from "qrcode";
 import Download from "./icons/Download.vue";
+import JsBarcode from "jsbarcode";
 
 const props = defineProps<{
   text: string;
@@ -46,8 +47,27 @@ const downloadSvg = (e: Event) => {
   saveAs(blob, props.text + ".svg");
 };
 
+const generateBarcode = () => {
+  if (!props.text) {
+    return;
+  }
+  JsBarcode("#barcode", "1234", {
+    lineColor: "#0aa",
+    height: 40,
+    displayValue: false,
+  });
+  // const canvas = document.createElement("canvas");
+  // JsBarcode(canvas, props.text, {
+  //   lineColor: "#0aa",
+  //   height: 40,
+  //   displayValue: false,
+  // });
+  // return canvas.toDataURL("image/png");
+};
+
 onMounted(() => {
   generateQr();
+  generateBarcode();
 });
 </script>
 
@@ -67,13 +87,21 @@ onMounted(() => {
         <span>Download</span>
       </button>
     </div>
+
+    <div>
+      <img id="barcode" />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .qrcode_response {
   display: flex;
-  margin-right: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-top: 1rem;
 
   .left_response {
     background: white;
@@ -86,9 +114,10 @@ onMounted(() => {
   .right_response {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-start;
     font-size: 1rem;
+    margin-right: 1rem;
 
     .color_track {
       display: flex;
@@ -97,7 +126,7 @@ onMounted(() => {
       padding: 0.25rem 0.5rem;
       border-radius: 0.5rem;
       border: 1px solid #ccc;
-      margin: 0 0.5rem;
+      margin: 0.5rem;
 
       input {
         background: transparent;
@@ -123,6 +152,11 @@ onMounted(() => {
       @include button($black);
       width: fit-content;
     }
+  }
+
+  img {
+    border-radius: 0.5rem;
+    width: 10rem;
   }
 }
 </style>
