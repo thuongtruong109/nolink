@@ -28,7 +28,7 @@ func main() {
 	}))
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: os.Getenv("ORIGIN"), // *
+		AllowOrigins: "*",
 		AllowMethods: strings.Join([]string{
 			fiber.MethodGet,
 			fiber.MethodPost,

@@ -3,7 +3,6 @@ import { ref, reactive, watch, onMounted } from "vue";
 import { saveAs } from "file-saver";
 import { toString } from "qrcode";
 import Download from "./icons/Download.vue";
-import JsBarcode from "jsbarcode";
 
 const props = defineProps<{
   text: string;
@@ -51,18 +50,6 @@ const generateBarcode = () => {
   if (!props.text) {
     return;
   }
-  JsBarcode("#barcode", "1234", {
-    lineColor: "#0aa",
-    height: 40,
-    displayValue: false,
-  });
-  // const canvas = document.createElement("canvas");
-  // JsBarcode(canvas, props.text, {
-  //   lineColor: "#0aa",
-  //   height: 40,
-  //   displayValue: false,
-  // });
-  // return canvas.toDataURL("image/png");
 };
 
 onMounted(() => {
@@ -87,10 +74,6 @@ onMounted(() => {
         <span>Download</span>
       </button>
     </div>
-
-    <div>
-      <img id="barcode" />
-    </div>
   </div>
 </template>
 
@@ -100,7 +83,6 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap;
   padding-top: 1rem;
 
   .left_response {
@@ -152,11 +134,6 @@ onMounted(() => {
       @include button($black);
       width: fit-content;
     }
-  }
-
-  img {
-    border-radius: 0.5rem;
-    width: 10rem;
   }
 }
 </style>

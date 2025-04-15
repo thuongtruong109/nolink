@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import ShortedItem from "./ShortedItem.vue";
+import type { TShortedList } from "../types";
 
 defineProps<{
-  shortedUrl: string[];
+  shortedList: TShortedList[];
 }>();
 </script>
 
 <template>
   <ul>
     <ShortedItem
-      :url="url"
-      v-for="(url, i) in shortedUrl"
+      :item="item"
+      v-for="(item, i) in shortedList"
       :key="i"
       :isActive="i === 0"
     />

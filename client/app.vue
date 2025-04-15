@@ -6,6 +6,7 @@ import ShortedList from "./components/ShortedList.vue";
 import Cut from "./components/icons/Cut.vue";
 import { EBUTTON_OPTION } from "./enums/option";
 import { FetchMethod } from "./services";
+import type { TShortedList } from "./types";
 
 const config = useRuntimeConfig();
 
@@ -13,12 +14,14 @@ const url = ref<string>("");
 
 const toolOption = ref<string>(EBUTTON_OPTION.SHORTEN);
 
-const shortedUrl = ref<string[]>([]);
+const shortedList = ref<TShortedList[]>([]);
 
 const onClearInput = () => {
   url.value = "";
   toolOption.value = EBUTTON_OPTION.SHORTEN;
 };
+
+// https://nuxt.com/docs/api/composables/use-cookie#usecookie
 
 // onMounted(() => {
 //   getAllShorted();
@@ -39,7 +42,7 @@ const onClearInput = () => {
 //     }
 //   );
 
-//   shortedUrl.value = allData;
+//   shortedList.value = allData;
 // };
 
 const onShorten = async () => {
@@ -51,7 +54,13 @@ const onShorten = async () => {
     body: JSON.stringify({ url: url.value }),
   });
 
-  shortedUrl.value.unshift(shortenData.short);
+  shortedList.value.unshift({
+    short: shortenData.short,
+    origin: url.value,
+    createdAt: new Date().toLocaleString("en-US", {
+      timeZone: "UTC",
+    }),
+  });
   onClearInput();
 };
 </script>
@@ -83,7 +92,7 @@ const onShorten = async () => {
         </button>
       </div>
 
-      <ShortedList :shortedUrl="shortedUrl" />
+      <ShortedList :shortedList="shortedList" />
     </section>
 
     <Footer />

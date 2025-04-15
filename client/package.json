@@ -4,16 +4,16 @@
   "version": "1.0",
   "description": "Ship your link in an easiest way",
   "keywords": [
-    "docker",
-    "nginx",
     "shortener",
-    "api",
     "golang",
     "nuxtjs",
     "vue",
-    "ssr",
     "scss",
-    "typescript"
+    "typescript",
+    "docker",
+    "nginx",
+    "api",
+    "ssr"
   ],
   "homepage": "https://github.com/thuongtruong1009/nolink#readme",
   "bugs": {
@@ -46,7 +46,6 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/robots": "^3.0.0",
     "file-saver": "^2.0.5",
-    "jsbarcode": "^3.11.5",
     "qrcode": "^1.5.3"
   }
 }

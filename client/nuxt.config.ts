@@ -1,11 +1,10 @@
-import path from "path";
 import pkg from "./package.json";
 
 export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: "en", dir: "ltr" },
-      title: pkg.name.toUpperCase(),
+      title: pkg.name,
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -14,6 +13,8 @@ export default defineNuxtConfig({
           name: "description",
           content: pkg.description,
         },
+        { name: "author", content: pkg.author },
+        { name: "keywords", content: pkg.keywords.join(", ") },
         { name: "format-detection", content: "telephone=no" },
       ],
       script: [

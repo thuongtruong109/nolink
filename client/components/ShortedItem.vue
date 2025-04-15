@@ -3,19 +3,22 @@ import { computed, ref } from "vue";
 import Check from "./icons/Check.vue";
 import Copy from "./icons/Copy.vue";
 import Arrow from "./icons/Arrow.vue";
-import QRCode from "./QRCode.vue";
+import Code from "./Code.vue";
+import type { TShortedList } from "../types";
 
 const props = defineProps<{
-  url: string;
+  item: TShortedList;
   isActive: boolean;
 }>();
 
 // const config = useRuntimeConfig();
 // const currentUrl = ref<string>(
-//   computed(() => String(config.public.apiBase) + props.url) as unknown as string
+//   computed(() => String(config.public.apiBase) + props.short) as unknown as string
 // );
 
-const currentUrl = ref<string>(computed(() => props.url) as unknown as string);
+const currentUrl = ref<string>(
+  computed(() => props.item.short) as unknown as string
+);
 const isCopied = ref<boolean>(false);
 
 const onCopy = (text: string) => {
@@ -32,17 +35,17 @@ const isToggleMore = ref<boolean>(props.isActive);
 <template>
   <li :class="{ active: isToggleMore }">
     <h4>
-      <span>Shorted: {{ props.isActive }}</span>
+      <span>Shorted:</span>
       <span v-if="isToggleMore">Origin:</span>
     </h4>
     <div class="item-content">
       <div class="link">
-        <a :href="props.url" target="_blank">{{ props.url }}</a>
+        <a :href="props.item.short" target="_blank">{{ props.item.short }}</a>
         <a :href="currentUrl" target="_blank" v-if="isToggleMore">{{
-          currentUrl
+          props.item.origin
         }}</a>
       </div>
-      <div v-if="isToggleMore"><QRCode :text="url" /></div>
+      <div v-if="isToggleMore"><Code :text="props.item.short" /></div>
     </div>
     <div class="item-btn">
       <button
@@ -54,7 +57,7 @@ const isToggleMore = ref<boolean>(props.isActive);
         <Arrow />
       </button>
       <button
-        @click="onCopy(props.url)"
+        @click="onCopy(props.item.short)"
         class="copy-btn"
         :disabled="isCopied"
         type="button"
@@ -122,6 +125,7 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 
     a {
       @include link($blue);
@@ -135,6 +139,14 @@ li {
       justify-content: center;
       width: 100%;
       text-align: center;
+      padding: 0 0.5rem;
+
+      a:nth-child(1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+      }
 
       a:nth-child(2) {
         color: $black;
@@ -142,6 +154,7 @@ li {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        max-width: 80%;
       }
     }
   }
